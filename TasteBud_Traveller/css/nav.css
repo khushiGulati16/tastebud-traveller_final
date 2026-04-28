@@ -1,0 +1,112 @@
+/*-fonts-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500&display=swap');
+/*-fonts-*/
+
+.container
+{
+	max-width:1200px;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    background: #fff !important;
+    border-bottom: 1px solid #ddd;
+    margin: 0px auto;
+    width: 100%;
+    padding: 20px 0;
+    Z-INDEX: 1;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light img {
+    margin-right: 15px;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light strong {
+    color: #fd0301;
+}
+ul.navbar-nav.ms-auto li a:hover {
+    color: #fd0301 !important;
+}
+ul.navbar-nav.ms-auto li a.nav-link.active {
+    color: #fd0301 !important;
+}
+ul.navbar-nav.ms-auto li a {
+    font-size: 16px;
+    color: #000 !important;
+    font-weight: 500;
+	 font-family: 'Poppins', sans-serif;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light li.nav-item:last-child {
+    background: #FD0301;
+    padding: 4px 30px;
+    margin-left: 20px;
+    color: #fff !important;
+	border-radius:6px;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light li.nav-item:last-child:hover {
+    background: #000;
+    transition: 0.3s;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light li.nav-item:last-child a {
+    color: #fff !important;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+ul.navbar-nav.ms-auto li {
+    padding: 0 7px;
+    text-transform: uppercase;
+}
+ul.navbar-nav.ms-auto li {
+    text-transform: capitalize;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    border-top: 5px solid #fd0301;
+    padding: 35px 0;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light strong {
+    font-size: 28px;
+}
+
+/*-hero-banner-*/
+.carousel-caption h1 {
+    font-size: 50px;
+    font-weight: 700;
+    position: absolute;
+    top: -350px;
+    padding: 15px;
+    left: -720px;
+    border-radius: 10px;
+    display: inline-block;
+    right: 0;
+    text-indent: -86px;
+    margin-bottom: 20px !important;
+    text-transform: capitalize;
+}
+body .carousel-caption img {
+    width: 30% !important;
+    left: -100px;
+    position: absolute;
+    bottom: 400px;
+}
+.carousel-caption p {
+    font-size: 20px;
+    font-weight: 500;
+    position: absolute;
+    top: -196px;
+    line-height: 35px;
+    text-transform: capitalize;
+    left: -83px;
+    border-radius: 10px;
+    right: 0;
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+    padding: 0;
+}
+.carousel-inner img {
+    width: 100% !important;
+    object-fit: scale-down;
+}
+.carousel-caption h1 span {
+    color: #fd0301;
+    font-weight: 900;
+    text-align: left;
+}

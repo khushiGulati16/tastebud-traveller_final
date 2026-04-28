@@ -1,0 +1,109 @@
+/*-fonts-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500&display=swap');
+/*-fonts-*/
+/*-services-*/
+.services
+{
+	padding:70px 0;
+}
+.services h2 {
+    font-size: 45px;
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+.services a {
+    font-size: 32px;
+	font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color: #fd0301;
+}
+.blogs img {
+    width: 366px;
+    height: 296px;
+}
+.services .content p {
+    color: #fff;
+    text-align: left;
+    font-size: 20px;
+}
+.services .our-services {
+    position: relative;
+    box-shadow: 1px 1px 13px #ddd;
+}
+.services .our-services .content p.know-more {
+    margin-top: 70px;
+    text-align: left;
+}
+.services .our-services:before {
+    content: "";
+    background: #000;
+    width: 100%;
+    height: 386px;
+    opacity: 0.5;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    z-index: 1;
+}
+p.good {
+    text-align: center;
+    font-size: 18px;
+}
+.services .our-services .content h4 {
+    font-size: 50px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    font-weight: 700;
+}
+.services .our-services .content p a:hover {
+    background: #fd0301;
+    transition: 0.3s;
+    border: 3px solid #fd0301;
+}
+.services .our-services .content p a {
+    border: 3px solid #ddd;
+    border-radius: 50px;
+    font-size: 20px;
+    color: #fff;
+    padding: 10px 25px;
+}
+.services .our-services .content {
+    position: absolute;
+    left: 30px;
+    top: 12%;
+    z-index: 999;
+}
+.services .col-md-6:last-child {
+    text-align: right;
+}
+.services .col-md-6 img {
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+    height: 386px;
+}
+.services .row:first-child {
+    margin-bottom: 50px;
+    padding: 0 15px;
+}
+.services .row:last-child {
+    margin-top: 30px;
+}
+.services .col-md-6.car .our-services {
+    height: 316px;
+}
+.services .col-md-6.car .our-services img {
+    height: 386px;
+    object-fit: cover;
+}
+/*-.services .col-md-6.car .our-services .content p {
+    bottom: -90px;
+    position: absolute;
+}
+.services .col-md-6.img-top {
+    margin-top: -110px;
+}-*/
+/*-services-*/

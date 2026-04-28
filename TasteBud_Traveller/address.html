@@ -1,0 +1,266 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=5">
+  <link rel="shortcut icon" href="iconlady.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Tastebud Traveller - Shipping Address</title>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .address-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .form-floating>.form-control,
+    .form-floating>.form-select {
+      height: 3.8rem;
+      padding: 1rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid #ced4da;
+      background-color: #fcfcfc;
+    }
+
+    .form-floating>label {
+      padding: 1rem 0.75rem;
+      color: #6c757d;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #fd0301;
+      box-shadow: 0 0 0 0.25rem rgba(253, 3, 1, 0.25);
+      background-color: #ffffff;
+    }
+
+    .input-icon {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      color: #adb5bd;
+      z-index: 4;
+    }
+
+    .btn-brand {
+      background: linear-gradient(135deg, #fd0301 0%, #ff4b4b 100%);
+      color: white;
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-radius: 10px;
+    }
+
+    .btn-brand:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(253, 3, 1, 0.3);
+      color: white;
+    }
+
+    .img-overlay {
+      background: linear-gradient(135deg, rgba(253, 3, 1, 0.9), rgba(255, 94, 94, 0.9)), url('img/b.jpeg') center/cover no-repeat;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar starting -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 5px; padding-bottom: 5px;">
+    <div class="container">
+      <img src="img/iconlady.jpg" alt="" height="90px">
+      <a class="navbar-brand" href="index.html"><strong>Tastebud Traveller</strong></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="mycart.html" id="open-cart">My Cart</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="contact-hero py-4 text-center text-white mb-5"
+    style="background: linear-gradient(135deg, rgba(253, 3, 1, 0.85), rgba(255, 94, 94, 0.85)), url('img/b.jpeg') center/cover no-repeat; border-radius: 0 0 30px 30px; margin-top: -10px;">
+    <div class="container py-3">
+      <h1 class="display-5 fw-bold mb-2" style="font-family: 'Poppins', sans-serif;">Delivery Details</h1>
+      <p class="lead mb-0">Tell us where to bring your delicious meal.</p>
+    </div>
+  </div>
+
+  <!-- Main Form Section -->
+  <div class="container mb-5 pb-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card border-0 shadow-lg address-card">
+          <div class="row g-0">
+            <div class="col-md-5 d-none d-md-block h-100">
+              <div class="img-overlay h-100 w-100" style="min-height: 550px;">
+                <i class="fas fa-map-marked-alt fa-5x mb-4"></i>
+                <h3 class="fw-bold mb-3">Fast Delivery</h3>
+                <p class="px-3">We ensure your food arrives hot and fresh to your doorstep.</p>
+              </div>
+            </div>
+            <div class="col-md-7 p-5">
+              <h3 class="fw-bold mb-4" style="color: #2c3e50;">Shipping Address</h3>
+              <form>
+                <div class="form-floating mb-3 position-relative">
+                  <input required type="text" class="form-control" id="name" name="name" autocomplete="name"
+                    placeholder="John Doe">
+                  <label for="name">Full Name</label>
+                  <i class="fas fa-user input-icon"></i>
+                </div>
+
+                <div class="form-floating mb-3 position-relative">
+                  <input required type="text" class="form-control" id="street-address" name="street-address"
+                    autocomplete="street-address" placeholder="123 Main St">
+                  <label for="street-address">Street Address</label>
+                  <i class="fas fa-map-marker-alt input-icon"></i>
+                </div>
+
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <div class="form-floating position-relative">
+                      <input required type="text" class="form-control" id="city" name="city"
+                        autocomplete="address-level2" placeholder="New York">
+                      <label for="city">City</label>
+                      <i class="fas fa-city input-icon"></i>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating position-relative">
+                      <input type="text" class="form-control" id="postal-code" name="postal-code"
+                        autocomplete="postal-code" placeholder="10001">
+                      <label for="postal-code">ZIP / Postal Code</label>
+                      <i class="fas fa-map-pin input-icon"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-floating mb-4 position-relative">
+                  <select class="form-select" id="country" name="country" autocomplete="country" required
+                    style="padding-right: 40px !important;">
+                    <option value="" selected disabled></option>
+                    <option value="IN">India</option>
+                    <option value="US">United States</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="CA">Canada</option>
+                    <option value="AU">Australia</option>
+                    <option value="AF">Afghanistan</option>
+                    <option value="BR">Brazil</option>
+                    <option value="CN">China</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                    <option value="IT">Italy</option>
+                    <option value="JP">Japan</option>
+                    <option value="MX">Mexico</option>
+                    <option value="ZA">South Africa</option>
+                    <option value="ES">Spain</option>
+                    <option value="AE">United Arab Emirates</option>
+                  </select>
+                  <label for="country">Country / Region</label>
+                  <i class="fas fa-globe input-icon" style="right: 35px;"></i>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mt-5 pt-2 border-top">
+                  <a href="mycart.html" class="text-decoration-none text-muted fw-bold hover-primary">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Cart
+                  </a>
+                  <button type="submit" class="btn btn-brand px-5 py-3 fw-bold shadow-sm text-uppercase">
+                    Save Address <i class="fas fa-check ms-2"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--footer-top-->
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <img src="img/iconlady2.jpg" height="120px" alt="Tastebud Traveller">
+          <strong>Tastebud Traveller</strong>
+          <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu.
+            Erat mi dolor vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras
+            fringilla lacinia tortor diam pretium.</p>
+        </div>
+
+        <div class="col-md-3">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="mycart.html">My Cart</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <h3>Contact us</h3>
+          <ul>
+            <li><strong>Phone:</strong> <a href="#">93505 37995</a></li>
+            <li><strong>Email: </strong><a href="#">kgulati849@gmail.com</a></li>
+            <li><strong>Address: </strong><a href="#">ABCD</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--footer-top-->
+
+  <!--footer-bottom-->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>2024 | All rights reserved</p>
+        </div>
+        <div class="col-md-6">
+          <ul class="social-icon">
+            <li><img src="img/insta.png" alt="Instagram"></li>
+            <li><img src="img/twitter.png" alt="Twitter"></li>
+            <li><img src="img/facebook.png" alt="Facebook"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--footer-bottom-->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout & Payment - Tastebud Traveller</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css?v=5">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .payment-card {
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .payment-card:hover {
+            border-color: #fd0301;
+            box-shadow: 0 5px 15px rgba(253, 3, 1, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .payment-card.active {
+            border-color: #fd0301;
+            background-color: #fff4f4;
+            box-shadow: 0 0 0 1px #fd0301;
+        }
+
+        .payment-form-control {
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ced4da;
+            background-color: #fcfcfc;
+        }
+
+        .payment-form-control:focus {
+            border-color: #fd0301;
+            box-shadow: 0 0 0 0.25rem rgba(253, 3, 1, 0.25);
+            background-color: #fff;
+        }
+
+        .btn-pay {
+            background: linear-gradient(135deg, #fd0301 0%, #ff4b4b 100%);
+            color: white;
+            border: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 8px;
+        }
+
+        .btn-pay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(253, 3, 1, 0.3);
+            color: white;
+        }
+
+        .order-summary-box {
+            position: sticky;
+            top: 20px;
+        }
+
+        .form-check-input:checked {
+            background-color: #fd0301;
+            border-color: #fd0301;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 5px; padding-bottom: 5px;">
+        <div class="container">
+            <img src="img/iconlady.jpg" alt="" height="90px">
+            <a class="navbar-brand" href="index.html"><strong>Tastebud Traveller</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="mycart.html" id="open-cart">My Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container my-5 pb-5">
+        <h2 class="fw-bold mb-4" style="color: #2c3e50;">Checkout & Payment</h2>
+
+        <div class="row g-4">
+            <!-- Payment Methods Section (Left) -->
+            <div class="col-lg-8">
+                <div class="card p-4 shadow-sm border-0" style="border-radius: 12px;">
+                    <h5 class="fw-bold mb-4 border-bottom pb-3" style="color: #2c3e50;">Select Payment Method</h5>
+
+                    <div class="row g-3">
+                        <!-- Card Payment Option -->
+                        <div class="col-md-6">
+                            <label class="payment-card active p-3 w-100 h-100 d-flex align-items-center"
+                                onclick="selectPayment('card', this)">
+                                <div class="form-check m-0 d-flex align-items-center w-100">
+                                    <input class="form-check-input flex-shrink-0" type="radio" name="paymentMethod"
+                                        id="payCard" checked>
+                                    <div class="ms-3 d-flex align-items-center flex-grow-1 justify-content-between">
+                                        <span class="fw-bold fs-6">Credit / Debit Card</span>
+                                        <i class="fas fa-credit-card fs-4 text-muted"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- UPI Option -->
+                        <div class="col-md-6">
+                            <label class="payment-card p-3 w-100 h-100 d-flex align-items-center"
+                                onclick="selectPayment('upi', this)">
+                                <div class="form-check m-0 d-flex align-items-center w-100">
+                                    <input class="form-check-input flex-shrink-0" type="radio" name="paymentMethod"
+                                        id="payUpi">
+                                    <div class="ms-3 d-flex align-items-center flex-grow-1 justify-content-between">
+                                        <span class="fw-bold fs-6">UPI</span>
+                                        <i class="fas fa-mobile-alt fs-4 text-muted"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Net Banking Option -->
+                        <div class="col-md-6">
+                            <label class="payment-card p-3 w-100 h-100 d-flex align-items-center"
+                                onclick="selectPayment('netbanking', this)">
+                                <div class="form-check m-0 d-flex align-items-center w-100">
+                                    <input class="form-check-input flex-shrink-0" type="radio" name="paymentMethod"
+                                        id="payNet">
+                                    <div class="ms-3 d-flex align-items-center flex-grow-1 justify-content-between">
+                                        <span class="fw-bold fs-6">Net Banking</span>
+                                        <i class="fas fa-university fs-4 text-muted"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Cash on Delivery Option -->
+                        <div class="col-md-6">
+                            <label class="payment-card p-3 w-100 h-100 d-flex align-items-center"
+                                onclick="selectPayment('cod', this)">
+                                <div class="form-check m-0 d-flex align-items-center w-100">
+                                    <input class="form-check-input flex-shrink-0" type="radio" name="paymentMethod"
+                                        id="payCod">
+                                    <div class="ms-3 d-flex align-items-center flex-grow-1 justify-content-between">
+                                        <span class="fw-bold fs-6">Cash on Delivery</span>
+                                        <i class="fas fa-money-bill-wave fs-4 text-muted"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Forms -->
+                    <div class="mt-4 pt-3 border-top">
+
+                        <!-- Card Details Form -->
+                        <div id="form-card" class="payment-form-section">
+                            <h6 class="fw-bold mb-3 text-muted">Enter Card Details</h6>
+                            <form onsubmit="processPayment(event)">
+                                <div class="mb-3">
+                                    <label class="form-label small fw-bold">Name on Card</label>
+                                    <input type="text" class="form-control payment-form-control" placeholder="John Doe"
+                                        required>
+                                </div>
+                                <div class="mb-3 position-relative">
+                                    <label class="form-label small fw-bold">Card Number</label>
+                                    <input type="text" class="form-control payment-form-control pe-5"
+                                        placeholder="0000 0000 0000 0000" maxlength="19" required>
+                                    <i class="fab fa-cc-visa position-absolute text-muted fs-4"
+                                        style="right: 15px; top: 38px;"></i>
+                                </div>
+                                <div class="row g-3 mb-2">
+                                    <div class="col-6">
+                                        <label class="form-label small fw-bold">Expiry Date</label>
+                                        <input type="text" class="form-control payment-form-control" placeholder="MM/YY"
+                                            maxlength="5" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small fw-bold">CVV</label>
+                                        <input type="password" class="form-control payment-form-control"
+                                            placeholder="123" maxlength="4" required>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-pay w-100 py-3 fw-bold text-uppercase fs-6">
+                                        Pay Securely <i class="fas fa-lock ms-2"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- UPI Form -->
+                        <div id="form-upi" class="payment-form-section d-none">
+                            <h6 class="fw-bold mb-3 text-muted">Enter UPI ID</h6>
+                            <form onsubmit="processPayment(event)">
+                                <div class="mb-3">
+                                    <label class="form-label small fw-bold">UPI ID (VPA)</label>
+                                    <input type="text" class="form-control payment-form-control"
+                                        placeholder="username@bank" required>
+                                    <div class="form-text mt-2"><i class="fas fa-info-circle me-1"></i>A payment request
+                                        will be sent to your UPI app.</div>
+                                </div>
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-pay w-100 py-3 fw-bold text-uppercase fs-6">
+                                        Pay Securely <i class="fas fa-lock ms-2"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Net Banking Form -->
+                        <div id="form-netbanking" class="payment-form-section d-none">
+                            <h6 class="fw-bold mb-3 text-muted">Select Your Bank</h6>
+                            <form onsubmit="processPayment(event)">
+                                <div class="mb-3">
+                                    <select class="form-select payment-form-control" required style="cursor: pointer;">
+                                        <option value="" selected disabled>Choose your bank</option>
+                                        <option value="sbi">State Bank of India (SBI)</option>
+                                        <option value="hdfc">HDFC Bank</option>
+                                        <option value="icici">ICICI Bank</option>
+                                        <option value="axis">Axis Bank</option>
+                                        <option value="kotak">Kotak Mahindra Bank</option>
+                                    </select>
+                                </div>
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-pay w-100 py-3 fw-bold text-uppercase fs-6">
+                                        Proceed to Bank <i class="fas fa-external-link-alt ms-2"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- COD Form -->
+                        <div id="form-cod" class="payment-form-section d-none">
+                            <div class="alert alert-secondary bg-light border-0 d-flex align-items-center p-4"
+                                style="border-radius: 8px;">
+                                <i class="fas fa-wallet fa-2x text-muted me-3"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Pay with Cash on Delivery</h6>
+                                    <p class="mb-0 text-muted small">You will pay the delivery executive when the food
+                                        arrives at your address.</p>
+                                </div>
+                            </div>
+                            <form onsubmit="processPayment(event, true)">
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-pay w-100 py-3 fw-bold text-uppercase fs-6">
+                                        Confirm Order <i class="fas fa-check ms-2"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary (Right) -->
+            <div class="col-lg-4">
+                <div class="card p-4 shadow-sm border-0 order-summary-box"
+                    style="border-radius: 12px; background-color: #ffffff;">
+                    <h5 class="mb-4 fw-bold pb-3 border-bottom" style="color: #2c3e50;">Order Summary</h5>
+
+                    <ul class="list-group list-group-flush mb-4">
+                        <li
+                            class="list-group-item d-flex justify-content-between align-items-center px-0 py-3 border-0">
+                            <span class="text-muted">Subtotal</span>
+                            <span id="checkout-subtotal" class="fw-bold fs-6">₹0.00</span>
+                        </li>
+                        <li
+                            class="list-group-item d-flex justify-content-between align-items-center px-0 py-3 border-0">
+                            <span class="text-muted">Taxes & GST (5%)</span>
+                            <span id="checkout-tax" class="fw-bold fs-6">₹0.00</span>
+                        </li>
+                        <li
+                            class="list-group-item d-flex justify-content-between align-items-center px-0 py-3 border-0">
+                            <span class="text-muted">Delivery Fee</span>
+                            <span id="checkout-delivery" class="fw-bold fs-6">₹50.00</span>
+                        </li>
+                        <li
+                            class="list-group-item d-flex justify-content-between align-items-center px-0 pt-4 pb-2 border-top mt-2">
+                            <span class="fw-bold fs-5" style="color: #2c3e50;">Total Amount</span>
+                            <span class="fw-bold fs-4" style="color: #fd0301;" id="checkout-total">₹0.00</span>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex align-items-center justify-content-center text-muted small mt-2">
+                        <i class="fas fa-shield-alt me-2 text-success"></i> 100% Secure Checkout
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="img/iconlady2.jpg" height="120px">
+                    <strong>Tastebud Traveller</strong>
+                    <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu.
+                        Erat mi dolor vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras
+                        fringilla lacinia tortor diam pretium.</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="mycart.html">My Cart</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>Contact us</h3>
+                    <ul>
+                        <li><strong>Phone:</strong> <a href="#">93505 37995</a></li>
+                        <li><strong>Email: </strong><a href="#">kgulati849@gmail.com</a></li>
+                        <li><strong>Address: </strong><a href="#">ABCD</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>2024 | All rights reserved</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="social-icon">
+                        <li><img src="img/insta.png"></li>
+                        <li><img src="img/twitter.png"></li>
+                        <li><img src="img/facebook.png"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Gateway Script -->
+    <script>
+        // Load cart totals on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItems = JSON.parse(localStorage.getItem('tastebud_cart')) || [];
+
+            let total = 0;
+            cartItems.forEach(item => { total += item.price * item.quantity; });
+
+            const taxes = total * 0.05;
+            const deliveryFee = total > 0 ? 50 : 0;
+            const finalTotal = total + taxes + deliveryFee;
+
+            document.getElementById('checkout-subtotal').innerText = '₹' + total.toFixed(2);
+            document.getElementById('checkout-tax').innerText = '₹' + taxes.toFixed(2);
+            document.getElementById('checkout-delivery').innerText = '₹' + deliveryFee.toFixed(2);
+            document.getElementById('checkout-total').innerText = '₹' + finalTotal.toFixed(2);
+
+            // Hide summary if empty
+            if (cartItems.length === 0) {
+                document.querySelector('.container.my-5').innerHTML = `
+                    <div class="text-center py-5">
+                        <i class="fas fa-shopping-basket fa-4x text-muted mb-4"></i>
+                        <h3 class="fw-bold">Your Cart is Empty</h3>
+                        <p class="text-muted">You cannot proceed to payment without any items.</p>
+                        <a href="menu.html" class="btn btn-pay px-4 py-2 mt-3">Browse Menu</a>
+                    </div>
+                `;
+            }
+        });
+
+        // Tab swapping logic
+        function selectPayment(methodId, element) {
+            // Remove active style from cards
+            document.querySelectorAll('.payment-card').forEach(el => el.classList.remove('active'));
+            // Add to clicked
+            element.classList.add('active');
+
+            // Check radio manually to be safe on label click
+            const radio = element.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+
+            // Hide all dynamic forms
+            document.querySelectorAll('.payment-form-section').forEach(form => form.classList.add('d-none'));
+
+            // Show targeted form
+            document.getElementById(`form-${methodId}`).classList.remove('d-none');
+        }
+
+        function processPayment(event, isCod = false) {
+            event.preventDefault();
+
+            // Simulate Payment Processing
+            const btn = event.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Processing...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Clear cart
+                localStorage.removeItem('tastebud_cart');
+
+                // Redirect to success page or replace body
+                if (isCod) {
+                    alert('Order confirmed! You chose Cash on Delivery.');
+                }
+
+                window.location.href = 'paymentsuccesful.html';
+            }, 1500);
+        }
+    </script>
+</body>
+
+</html>

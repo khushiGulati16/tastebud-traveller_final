@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css?v=5">
+    <link rel="shortcut icon" href="iconlady.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/feed.css" />
+    <title>Tastebud Traveller - Let Us Know Your Feedback</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .feedback-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .rating-btn {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            cursor: pointer;
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            border: 2px solid #e9ecef;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rating-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            border-color: #fd0301;
+        }
+
+        .rating-btn.active {
+            border-color: #fd0301;
+            background-color: #fff4f4;
+            box-shadow: 0 0 0 2px rgba(253, 3, 1, 0.2);
+        }
+
+        .rating-btn.active small {
+            color: #fd0301;
+        }
+
+        .rating-btn img {
+            width: 55px;
+            height: 55px;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .rating-btn:hover img,
+        .rating-btn.active img {
+            transform: scale(1.1);
+        }
+
+        .rating-btn small {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #495057;
+            transition: color 0.3s ease;
+        }
+
+        .btn-brand {
+            background: #fd0301;
+            color: white;
+            border: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            border-radius: 8px;
+        }
+
+        .btn-brand:hover {
+            background: #ff2e2e;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(253, 3, 1, 0.2);
+        }
+
+        .feedback-img-side {
+            background: linear-gradient(135deg, rgba(253, 3, 1, 0.9), rgba(255, 94, 94, 0.9)), url('img/b.jpeg') center/cover no-repeat;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        /* New flat panel for the right side */
+        .feedback-form-wrapper {
+            background-color: #fff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feedback-panel {
+            background-color: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navbar starting -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top: 5px; padding-bottom: 5px;">
+        <div class="container">
+            <img src="img/iconlady.jpg" alt="" height="90px">
+            <a class="navbar-brand" href="index.html"><strong>Tastebud Traveller</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mycart.html" id="open-cart">My Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Section (No Hero to save space and simplify layout if preferred, or we keep it tight) -->
+    <main class="container my-5 py-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card border-0 shadow-lg feedback-card">
+                    <div class="row g-0 align-items-stretch" style="min-height: 500px;">
+
+                        <!-- Left Side Image -->
+                        <div class="col-md-5 d-none d-md-block">
+                            <div class="feedback-img-side w-100 h-100 p-5">
+                                <i class="fas fa-heart fa-4x mb-4 text-white"></i>
+                                <h3 class="fw-bold mb-3">We Love to Listen</h3>
+                                <p class="mb-0 px-2">Your reviews help us serve you better every day. We value your
+                                    honest opinion.</p>
+                            </div>
+                        </div>
+
+                        <!-- Right Side Form/Feedback Panel -->
+                        <div class="col-md-7">
+                            <div class="feedback-form-wrapper p-4 p-md-5">
+
+                                <div id="panel" class="feedback-panel text-center">
+                                    <h4 class="fw-bold mb-5"
+                                        style="font-family: 'Poppins', sans-serif; line-height: 1.4; color: #2c3e50;">
+                                        How satisfied are you<br />with our service?</h4>
+
+                                    <div class="ratings-container d-flex justify-content-between gap-3 mb-5 px-2">
+
+                                        <div class="rating rating-btn flex-fill">
+                                            <img src="img/unhappy.jpg" alt="Unhappy">
+                                            <small>Unhappy</small>
+                                        </div>
+
+                                        <div class="rating rating-btn flex-fill">
+                                            <img src="img/neutral.jpg" alt="Neutral" />
+                                            <small>Neutral</small>
+                                        </div>
+
+                                        <div class="rating rating-btn active flex-fill">
+                                            <img src="img/happy.jpg" alt="Satisfied" />
+                                            <small>Satisfied</small>
+                                        </div>
+
+                                    </div>
+
+                                    <button class="btn btn-brand py-3 px-4 fw-bold text-uppercase w-100 mt-2" id="send"
+                                        style="font-size: 1rem; letter-spacing: 1px;">
+                                        SEND REVIEW <i class="fas fa-paper-plane ms-2"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--footer-top-->
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="img/iconlady2.jpg" height="120px" alt="Tastebud Traveller">
+                    <strong>Tastebud Traveller</strong>
+                    <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu.
+                        Erat mi dolor vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras
+                        fringilla lacinia tortor diam pretium.</p>
+                </div>
+
+                <div class="col-md-3">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="mycart.html">My Cart</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>Contact us</h3>
+                    <ul>
+                        <li><strong>Phone:</strong> <a href="#">93505 37995</a></li>
+                        <li><strong>Email: </strong><a href="#">kgulati849@gmail.com</a></li>
+                        <li><strong>Address: </strong><a href="#">ABCD</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer-top-->
+
+    <!--footer-bottom-->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>2024 | All rights reserved</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="social-icon">
+                        <li><img src="img/insta.png" alt="Instagram"></li>
+                        <li><img src="img/twitter.png" alt="Twitter"></li>
+                        <li><img src="img/facebook.png" alt="Facebook"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer-bottom-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/fed.js"></script>
+</body>
+
+</html>

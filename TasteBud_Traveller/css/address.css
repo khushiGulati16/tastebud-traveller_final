@@ -1,0 +1,59 @@
+body{
+    background-image: url(back_enhanced.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.wrapper{
+    border: 5px solid rgb(213, 76, 76);
+margin-left: 500px;
+margin-right: 500px;
+margin-top: 180px;
+
+}
+
+form {
+    width: 90vw;
+    max-width: 20em;
+  }
+  
+  button {
+    margin-top: 2rem;
+  }
+  
+  input {
+    border: 1px solid;
+    padding: 0.3em;
+    width: 100%;
+  }
+  
+  textarea {
+    width: 100%;
+    min-height: 6em;
+  }
+  
+  label {
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  select {
+    font-size: 16px;
+  }
+  
+  .postal-code {
+    width: 50%;
+  }
+  .new{
+    color: black;
+    background-color: blue;
+    font-size: 20px;
+   
+  }
+  .hi{
+    background-color: red;
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+  }

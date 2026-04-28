@@ -1,0 +1,114 @@
+/*-testimonails-*/
+.testimonails
+{
+	background-color:#FFF7F5;
+	padding:70px 0;
+}
+.testimonails h4 {
+    font-size: 32px;
+    color: #fd0301;
+	font-family: 'Poppins', sans-serif;
+}
+.testimonails h2 {
+    font-size: 45px;
+    color: #000;
+    font-weight: 700;
+	font-family: 'Inter', sans-serif;
+    margin-bottom: 50px;
+}
+.testimonial{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3d5a80;
+    color: #3d5a80;
+}
+.testimonails .box {
+    background: #fff;
+    padding: 30px 50px;
+    position: relative;
+    margin-top: 32px;
+    border-radius: 16px;
+}
+.testimonails .box .text p {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 32px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 35px;
+    padding-top: 50px;
+}
+.designation h5 {
+    font-size: 16px;
+	font-family: 'Poppins', sans-serif;
+}
+.author p {
+    padding-bottom: 0px !important;
+    margin-bottom: 0;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    font-family: 'Poppins', sans-serif !important;
+    color: #9999;
+}
+.author .rate img {
+    width: auto !Important;
+    height: auto !important;
+}
+.author img {
+    object-fit: contain;
+}
+.author {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 35px;
+}
+.author p {
+    border-bottom: none !important;
+}
+.testimonails .box img {
+    width: 120px;
+    height: 120px;
+}
+.slick-dots li button:before {
+    font-size: 50px !important;
+}
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #fd0301 !important;
+}
+.slick-dots li button:before {
+    color: #D6D6D6 !important;
+}
+.testimonails .box:first-child {
+    margin-right: 20px;
+}
+.slick-dots li {
+    margin: 0 0 !important;
+}
+.slick-dots {
+
+    bottom: -50px !important;
+	text-align:left !important;
+    top: auto !important;
+}
+.testimonails h4 {
+    font-size: 25px;
+}
+.testimonails img.testi-img {
+    position: absolute;
+    top: -40px;
+    left: 0px;
+}
+.author p {
+    padding-top: 0px !important;
+}
+.slick-next {
+    right: 0;
+    display: none !important;
+}
+/*-testimonails-*/
+
